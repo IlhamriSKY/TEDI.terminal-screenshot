@@ -2,6 +2,12 @@
 
 All notable changes to **Screenshot** (formerly *TEDI Terminal Screenshot*). Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org/).
 
+## [0.5.9] - 2026-09-08
+
+### Changed
+
+- **The status-bar button asks for a Lucide camera by name instead of shipping a PNG of one.** The host draws every other status-bar glyph as line-art, and the capture button was a raster logo scaled to 16px beside them. It could not have been anything else until now: the right-panel toggle was the one icon surface in TEDI that never resolved `lucide:` names, so the host carried a hard-coded table mapping this extension's id to a camera. TEDI 0.4.45 resolves every extension icon through one hook and deleted that table, so the glyph is declared here, which is where it belonged. `engines.tedi` is raised to match: an older host would try to load `lucide:Camera` as a file path and fall back to a muted square.
+
 ## [0.5.8] - 2026-08-24
 
 ### Changed
